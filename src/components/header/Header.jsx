@@ -18,10 +18,12 @@ const Header = () => {
     const location = useLocation();
 
     const openSearch = () => {
+        console.log("openSearch function called");
         setMobileMenu(false);
         setShowSearch(true);
     }
     const openMobileMenu = () => {
+        console.log("openMobileMenu function called");
         setMobileMenu(true);
         setShowSearch(false);
     }
@@ -59,7 +61,7 @@ const Header = () => {
                 </ul>
 
                 <div className="mobileMenuItems">
-                    <HiOutlineSearch />
+                    <HiOutlineSearch onClick={openSearch} />
                     {mobileMenu ? <VscChromeClose onClick={() => setMobileMenu(false)} /> : <SlMenu onClick={openMobileMenu} />}
                 </div>
             </div>
