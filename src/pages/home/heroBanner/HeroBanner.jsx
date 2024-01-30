@@ -20,12 +20,17 @@ const HeroBanner = () => {
         setBackground(bg)
     }, [data]);
 
-
-    const searchQueryHandle = (event) => {
-        if (event.key === "Enter" && query.length > 0) {
-            navigation(`/search/${query}`)
+    const searchQueryHandle = () => {
+        if (query.length > 0) {
+            navigation(`/search/${query}`);
         }
-    }
+    };
+
+    const handleSearch = (event) => {
+        if (event.key === "Enter") {
+            searchQueryHandle();
+        }
+    };
 
     return (
         <div className='HeroBanner'>
@@ -40,7 +45,7 @@ const HeroBanner = () => {
                     <h1>WELCOME!!</h1>
                     <p>watch unlimited Movies and shows</p>
                     <div className="inputBox">
-                        <input onChange={(e) => setQuery(e.target.value)} onKeyUp={searchQueryHandle} type="text" placeholder='Search for a Movie or TV show...' /><button>Search</button>
+                        <input onChange={(e) => setQuery(e.target.value)} onKeyUp={handleSearch} type="text" placeholder='Search for a Movie or TV show...' /><button onClick={searchQueryHandle}>Search</button>
                     </div>
                 </div>
             </ContentWrapper>
