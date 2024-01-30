@@ -17,6 +17,28 @@ const Header = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [location]);
+
+    const controlNavbar = () => {
+        if (window.scrollY > 200) {
+            if (window.scrollY > setLastScrollY && !mobileMenu) {
+                setShow("hide");
+            } else {
+                setShow("show");
+            }
+        } else { setShow("top"); }
+        setLastScrollY(window.screenY);
+    }
+
+    useEffect(() => {
+        window.addEventListener("scroll", controlNavbar)
+        return () => {
+            window.removeEventListener("scroll", controlNavbar)
+        }
+    }, lastScrollY)
+
     const openSearch = () => {
         console.log("openSearch function called");
         setMobileMenu(false);
