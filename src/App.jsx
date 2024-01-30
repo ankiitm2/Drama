@@ -40,6 +40,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
+        <Route path={"/Drama"} element={<Home />} />
         <Route path={"/"} element={<Home />} />
         <Route path={"/:mediaType/:id"} element={<Deatils />} />
         <Route path={"/search/:query"} element={<SearchResults />} />
