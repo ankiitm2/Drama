@@ -10,7 +10,8 @@ import dayjs from "dayjs";
 import ContentWrapper from "../contentWrapper/ContentWrapper"
 import Img from "../lazyload/Img"
 import PosterFallback from "../../assets/no-poster.png";
-
+import CircleRating from "../circleRating/circleRating";
+import Genres from "../genres/Genres";
 import "./style.scss";
 
 const Carousel = ({ data, loading }) => {
@@ -19,6 +20,18 @@ const Carousel = ({ data, loading }) => {
     const navigate = useNavigate();
 
     const navigation = (dir) => { }
+
+    const skItem = () => {
+        return (
+            <div className="skeletonItem">
+                <div className="posterBlock skeleton"></div>
+                <div className="textBlock">
+                    <div className="title skeleton"></div>
+                    <div className="date skeleton"></div>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="carousel">
@@ -34,6 +47,8 @@ const Carousel = ({ data, loading }) => {
                                 <div key={item.id} className="carouselItem">
                                     <div className="posterBlock">
                                         <Img src={posterUrl} />
+                                        <CircleRating rating={item.vote_average.toFixed(1)} />
+                                        <Genres data={item.genre_ids.slice(0, 2)} />
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
@@ -48,7 +63,12 @@ const Carousel = ({ data, loading }) => {
                         })}
                     </div>
                 ) : (
-                    <span>Loading...</span>
+                    <div className="loadingSkeleton">
+                        {skItem()}
+                        {skItem()}
+                        {skItem()}
+                        {skItem()}
+                    </div>
                 )}
             </ContentWrapper>
         </div>
