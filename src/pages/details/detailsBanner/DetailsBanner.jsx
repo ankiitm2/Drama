@@ -11,6 +11,7 @@ import Genres from "../../../components/genres/Genres";
 import CircleRating from "../../../components/circleRating/CircleRating";
 import Img from "../../../components/lazyload/Img"
 import PosterFallback from "../../../assets/no-poster.png";
+import { PlayIcon } from "../playIcon/PlayIcon";
 
 const DetailsBanner = ({ video, crew }) => {
     const { mediaType, id } = useParams();
@@ -51,6 +52,43 @@ const DetailsBanner = ({ video, crew }) => {
                                             {data?.tagline}
                                         </div>
                                         <Genres data={_genres} />
+                                        <div className="row">
+                                            <CircleRating rating={data?.vote_average.toFixed(1)} />
+                                            <div className="playbtn" onClick={() => { }}>
+                                                <PlayIcon />
+                                                <span className="text">Watch Trailer</span>
+                                            </div>
+                                        </div>
+                                        <div className="overview">
+                                            <div className="heading">
+                                                Overview
+                                            </div>
+                                            <div className="description">
+                                                {data.overview}
+                                            </div>
+                                        </div>
+                                        <div className="info">
+                                            {data.status &&
+                                                <div className="infotext">
+                                                    <span className="text bold">
+                                                        Status:{""}
+                                                    </span>
+                                                    <span className="text">
+                                                        {data.status}
+                                                    </span>
+                                                </div>
+                                            }
+                                            {data.release_date &&
+                                                <div className="infotext">
+                                                    <span className="text bold">
+                                                        Release Date:{""}
+                                                    </span>
+                                                    <span className="text">
+                                                        {dayjs(data.release_date).format("DD MMM, YYYY")}
+                                                    </span>
+                                                </div>
+                                            }
+                                        </div>
                                     </div>
                                 </div>
                             </ContentWrapper>
