@@ -69,7 +69,7 @@ const DetailsBanner = ({ video, crew }) => {
                                         </div>
                                         <div className="info">
                                             {data.status &&
-                                                <div className="infotext">
+                                                <div className="infoItem">
                                                     <span className="text bold">
                                                         Status:{""}
                                                     </span>
@@ -79,12 +79,22 @@ const DetailsBanner = ({ video, crew }) => {
                                                 </div>
                                             }
                                             {data.release_date &&
-                                                <div className="infotext">
+                                                <div className="infoItem">
                                                     <span className="text bold">
                                                         Release Date:{""}
                                                     </span>
                                                     <span className="text">
                                                         {dayjs(data.release_date).format("DD MMM, YYYY")}
+                                                    </span>
+                                                </div>
+                                            }
+                                            {data.runtime &&
+                                                <div className="infoItem">
+                                                    <span className="text bold">
+                                                        Runtime:{""}
+                                                    </span>
+                                                    <span className="text">
+                                                        {toHoursAndMinutes(data.runtime)}
                                                     </span>
                                                 </div>
                                             }
