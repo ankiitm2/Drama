@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ContentWrapper from '../../../components/contentWrapper/ContentWrapper'
 import SwitchTabs from '../../../components/switchTab/SwitchTabs'
 import useFetch from "../../../hooks/useFetch"
@@ -19,7 +19,7 @@ const Popular = () => {
                 <h1>Popular</h1>
                 <SwitchTabs data={["Movie", "TV Shows"]} onTabsChange={onTabsChange} />
             </ContentWrapper>
-            <Carousel data={data?.results} loading={loading} />
+            <Carousel data={data?.results} loading={loading} endPoint={endPoint} />
         </div>
     )
 }
