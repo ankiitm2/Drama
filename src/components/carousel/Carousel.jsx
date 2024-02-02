@@ -42,6 +42,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
         )
     }
 
+
     return (
         <div className="carousel">
             <ContentWrapper>
