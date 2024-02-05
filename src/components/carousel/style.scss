@@ -3,7 +3,7 @@
 .carousel {
     margin-bottom: 50px;
 
-    .contentWrapper {
+    .ContentWrapper {
         position: relative;
     }
 
@@ -36,12 +36,12 @@
     }
 
     .carouselLeftNav {
-        left: 18.75rem;
+        left: -3.75rem;
 
     }
 
     .carouselRighttNav {
-        right: 18.75rem;
+        right: -3.75rem;
     }
 
     .loadingSkeleton {
