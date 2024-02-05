@@ -45,14 +45,24 @@ const SearchResults = () => {
             {loading && <Spinner initial={true} />}
             {!loading && (
                 <ContentWrapper>
-                    {data.results.length > 0 ? (
+                    {data?.results?.length > 0 ? (
                         <>
                             <div className="pageTitle">
-                                {`Search ${data.total_page > 1 ? "results" : "result"} of '${query}'`}
+                                {`Search ${data?.total_results > 1 ? "results" : "result"} of '${query}'`}
                             </div>
+                            <InfiniteScroll next={fetchNextPageData} loader={<Spinner />}
+                                hasMore={pageNum <= data?.total_pages}
+                                className="content" dataLength={data?.results?.length || []}>
+                                {data?.results?.map((item, index) => {
+                                    if (item.media_type === "person") return;
+                                    return (
+                                        <MovieCard key={index} data={item} fromSearch={true} />
+                                    )
+                                })}
+                            </InfiniteScroll>
                         </>
                     ) : (
-                        <span class="resultNotFound">
+                        <span className="resultNotFound">
                             Sorry, No results Found
                         </span>
                     )}
