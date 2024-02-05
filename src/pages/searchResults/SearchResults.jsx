@@ -37,6 +37,7 @@ const SearchResults = () => {
     }
 
     useEffect(() => {
+        setPageNum(1);
         fetchInitialData()
     }, [query])
 
