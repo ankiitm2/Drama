@@ -34,11 +34,30 @@
         padding: 0 20px;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     .logo {
         cursor: pointer;
+        display: flex;
+        gap: .4rem;
+        align-items: center;
 
         img {
-            height: 50px;
+            height: 35px;
+            background: var(--gradient);
+            border-radius: 50%;
+        }
+
+        .logoTitle {
+            font-weight: 900;
+            font-size: 2.2rem;
+            background-clip: text;
+            color: transparent;
+            // background-image: linear-gradient(98.37deg, #9197c8 0.99%, #310a84 100%);
+            background-image: linear-gradient(90deg, #FAD961 0%, #F76B1C 100%);
+
         }
     }
 

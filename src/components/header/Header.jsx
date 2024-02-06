@@ -6,7 +6,7 @@ import { useNavigate, useLocation, Link } from 'react-router-dom';
 import "./style.scss";
 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
-import logo from "../../assets/movix-logo.svg"
+import logo from "../../assets/movie-logo.png"
 
 const Header = () => {
     const [show, setShow] = useState("top");
@@ -73,7 +73,7 @@ const Header = () => {
             <div className="contentWrapper">
                 <Link to={"/"}>
                     <div className="logo">
-                        <img src={logo} alt="" />
+                        <img src={logo} alt="" /> <span className='logoTitle'>Drama</span>
                     </div>
                 </Link>
                 <ul className="menuItems">
